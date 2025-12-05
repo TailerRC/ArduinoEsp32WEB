@@ -147,7 +147,7 @@ void loop() {
   inches = cm / 2.54;
 
   // --- Lógica del servo con aprobación ---
-  if (cm > 0 && cm <= 20) {
+  if (cm > 0 && cm < 24) {
     if (!esperandoAprobacion && !servoAprobado) {
       // Solicitar aprobación
       esperandoAprobacion = true;
@@ -181,7 +181,7 @@ void loop() {
   float temperaturaC = dht.readTemperature();
 
   // --- Alarma por temperatura ---
-  if (temperaturaC >= 30.0) {
+  if (temperaturaC >= 30) {
     for (int i = 0; i < 3; i++) {
       tone(SPEAKER_PIN, 1000);
       delay(400);
